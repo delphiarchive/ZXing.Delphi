@@ -1,8 +1,10 @@
 # ZXing.Delphi
 ZXing Barcode Scanning Library for Delphi XE to 10.2 Tokyo. 
 
-![ZXing.Delphi Logo](https://github.com/Spelt/ZXing.Delphi/blob/v_3.0/zxing.Delphi.picture2.png )
+<img align="right" src="https://github.com/Spelt/ZXing.Delphi/blob/v_3.0/zxing-logo.png"/>
 
+
+![ZXing.Delphi Logo](https://github.com/Spelt/ZXing.Delphi/blob/v_3.0/zxing.Delphi.picture2.png )
 ZXing.Delphi is a native Object Pascal library that is based on the well known open source Barcode Library: ZXing (Zebra Crossing). This port is based on .Net Redth port of ZXing and the Java one. This is I think the first native FireMonkey barcode lib. It is aimed at all of the FireMonkey mobile platforms and, starting from v3.1, it fully supports also Windows VCL applications (no dependencies on FMX.Graphics unit).
 
 With this library you can scan with native speed without the use of linking in external libraries and avoid compatibility issues and dependencies. It is fast.
@@ -11,12 +13,6 @@ Its compatible with in Delphi XE7 - 10 Tokyo and tested with IOS 8.x, 9.x, 10x A
 The goal of ZXing.Delphi is to make scanning barcodes effortless, painless, fast and build within your FireMonkey or native Windows (VCL or Firemonkey) applications.  
 
 Just include the source files and add it in your existing projects and build the ZXing.Delphi source within your projects.
-
-
-## Important note:
-
-- BREAKING CHANGES: from version 3.0 the folder structure is massively changed.  
-- In Delphi 10 Seattle you may have to fiddle witht TFocusMode.ContinuousAutoFocus. Perhaps maybe you can set a fixed focus.
 
 
 ## Supported Formats
@@ -39,6 +35,10 @@ Just include the source files and add it in your existing projects and build the
 	
 
 ### Changes
+- v3.4
+	- Added an advanced test app. Featuring faster camera, sound, barcode marker,warning for slow camera and a cool HUD. It makes use of huge camera performance tweak. See Readme in the uMain.pas and https://quality.embarcadero.com/browse/RSP-10592 
+	- Little cleanup	
+	
 - v3.3.1 Date: 2017/01/08 (Thanks for Nano103)
 	- Bug fix in Code39
 
@@ -51,7 +51,7 @@ Just include the source files and add it in your existing projects and build the
 	- Added EAN8, EAN13 (many requests)
 	- v3 becomes master branch
 
-- v3.1 Date: 2016/06/28 (Super many thank to: Carlo Sirna)
+- v3.1 Date: 2016/06/28 (Super many thanks to: Carlo Sirna)
 	- Added VCL support (via IFDEF USE_VCL_BITMAP).
 	- Memleak fixes for old gen compilers (win32/win64).
 	- Fix: QRCode ECI character set + extra unit test.
@@ -60,8 +60,8 @@ Just include the source files and add it in your existing projects and build the
 	- Some other bug fixes.
 
 - v3.0 Date: 2016/04/28 (Great many thanks to: Kai Gossens and Raphael Büchler)
-
-	- Added DataMatrix (BETA).
+	- Massive folder restructuring
+	- Added DataMatrix (centered only).
 	- ResultPoint event added.
 	- Support for inverted 1D/2D code types.
 	- Better OneDReader scan strategy
@@ -138,6 +138,7 @@ FReadResult := FScanManager.Scan(scanBitmap);
 
 Of course the real world is not that simple.  To leave your app responsive while scanning you need to run things in parallel. I created a test app to show you how just to do that. Its included.  It makes use of the new Firemonkey parallel lib. In the testApp the resolution of the camera is set to medium (FMX.Media.TVideoCaptureQuality.MediumQuality) on my iPhone 6. This is only possible since XE8 and equivalent Appmethod. Its also good to mention that how higher the resolution the more time it takes to scan a bitmap. Some scaling could probably work too.
 
+Andrea Magni has a very nice blog post about an Android ZXing example from a training excerise of his. You can find it [here](https://blog.andreamagni.eu/2017/06/scannermapp-a-qrbarcode-scanner-app-with-delphi-zxing-and-tframestand/).
 
 ### Thanks
 ZXing.Delphi is a project that I've put together with the work of others.  So naturally, I'd like to thank everyone who's helped out in any way.  Those of you I know have helped I'm listing here, but anyone else that was involved, please let me know!

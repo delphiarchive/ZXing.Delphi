@@ -499,6 +499,21 @@ begin
     Assert.IsTrue(result.Text.Equals('1234567'),
       'Code 128 result Text Incorrect: ' + result.Text);
 
+    result := Decode('code128 upsidedown.png', TBarcodeFormat.CODE_128);
+    Assert.IsNotNull(result, ' Nil result ');
+    Assert.IsTrue(result.Text.Equals('1234567'),
+      'Code 128 result Text Incorrect: ' + result.Text);
+
+
+    result := Decode('code128 upsidedownchidden in bottom.png', TBarcodeFormat.CODE_128);
+    Assert.IsNotNull(result, ' Nil result ');
+    Assert.IsTrue(result.Text.Equals('1234567'),
+      'Code 128 result Text Incorrect: ' + result.Text);
+
+
+
+
+
   finally
     FreeAndNil(result);
   end;
@@ -712,11 +727,11 @@ function TZXingDelphiTest.Decode(Filename: String; CodeFormat: TBarcodeFormat;
 var
   bmp: TBitmap;
   ScanManager: TScanManager;
-  hints: TDictionary<TDecodeHintType, TObject>;
+//  hints: TDictionary<TDecodeHintType, TObject>;
 begin
   bmp := GetImage(Filename);
   try
-    hints := TDictionary<TDecodeHintType, TObject>.Create();
+    //hints := TDictionary<TDecodeHintType, TObject>.Create();
     // hints.Add(TDecodeHintType.PURE_BARCODE, nil);
 
     ScanManager := TScanManager.Create(CodeFormat, additionalHints);
