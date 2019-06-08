@@ -1,18 +1,23 @@
 ﻿# ZXing.Delphi
-ZXing Barcode Scanning Library for Delphi XE to 10.2 Tokyo. 
+ZXing Barcode Scanning Library for Delphi XE to 10.3 Rio. 
 
 <img align="right" src="https://github.com/Spelt/ZXing.Delphi/blob/v_3.0/zxing-logo.png"/>
 
 
 ![ZXing.Delphi Logo](https://github.com/Spelt/ZXing.Delphi/blob/v_3.0/zxing.Delphi.picture2.png )
+
 ZXing.Delphi is a native Object Pascal library that is based on the well known open source Barcode Library: ZXing (Zebra Crossing). This port is based on .Net Redth port of ZXing and the Java one. This is I think the first native FireMonkey barcode lib. It is aimed at all of the FireMonkey mobile platforms and, starting from v3.1, it fully supports also Windows VCL applications (no dependencies on FMX.Graphics unit).
 
 With this library you can scan with native speed without the use of linking in external libraries and avoid compatibility issues and dependencies. It is fast.
 
-Its compatible with in Delphi XE7 - 10 Tokyo and tested with IOS 8.x, 9.x, 10x Android, Windows 32/64 and OSX. 
+Its compatible with in Delphi XE7 - 10 Rio and tested with IOS 8.x, 9.x, 10.x, 11.x, 12.x, Android, Windows 32/64 and OSX. 
 The goal of ZXing.Delphi is to make scanning barcodes effortless, painless, fast and build within your FireMonkey or native Windows (VCL or Firemonkey) applications.  
 
 Just include the source files and add it in your existing projects and build the ZXing.Delphi source within your projects.
+
+### NOTE for 'Advanced test demo app' and Android with Rio.
+The Android camera is currently working better then ever for Rio and Android! Many thanks to: E. van Bilsen.
+
 
 
 ## Supported Formats
@@ -35,6 +40,16 @@ Just include the source files and add it in your existing projects and build the
 	
 
 ### Changes
+
+- v3.8.1
+	- In 'Advanced demo' added Rio compatible Android camera optimizing library (thanks to E. van Bilsen). 
+- v3.8
+	- Fixed missing files for 'advanced test demo app', due to incompatibility with the external used libFastUtils.a and libfastutils-android.a it is not supported for Rio and Android.
+	- Added in 'advanced test demo app' new Rio / Android 7+ code for the new permission model.
+- v3.7
+	- Changes in demo app. Asking Permissions to mobile users. 
+- v3.6
+	- Fixed QRCode bug and QR Memleak (thanks to C. Pradelli)
 - v3.5 
 	- Fixed a QRCode bug. Did not find the QRCode in some cases. Bugfix: https://github.com/Spelt/ZXing.Delphi/issues/65 
 - v3.4
@@ -145,7 +160,7 @@ Andrea Magni has a very nice blog post about an Android ZXing example from a tra
 ### Thanks
 ZXing.Delphi is a project that I've put together with the work of others.  So naturally, I'd like to thank everyone who's helped out in any way.  Those of you I know have helped I'm listing here, but anyone else that was involved, please let me know!
 
-- The ZXing Project Authors - Sean Owen.
+- The ZXing main project author - Sean Owen.
 - J. Dick at Redth at https://github.com/Redth/ZXing.Net.Mobile
 - Carlo Sirna
 - P. B. Hofstede

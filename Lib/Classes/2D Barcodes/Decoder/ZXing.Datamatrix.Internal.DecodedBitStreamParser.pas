@@ -95,6 +95,7 @@ begin
       begin
         if (not TDecodedBitStreamParser.decodeAsciiSegment(bits, res,
           resultTrailer, mode)) then
+             result := nil;  // this line was totally missing. I assume the correct thing is to set result = nil.
       end
       else
       begin
@@ -396,17 +397,14 @@ begin
                               end
                               else
                               begin
-                                if (oneByte >= 242) then
-                                begin
                                   // Not to be used in ASCII encodation
                                   // ... but work around encoders that end with 254, latch back to ASCII
-                                  if ((not oneByte = 254) or
-                                    (not bits.available() = 0)) then
+                                  if ((oneByte <> 254) or (bits.available() <> 0)) then
                                   begin
                                     result := false;
                                     exit;
                                   end;
-                                end;
+
                               end;
                             end;
                           end;
